@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBars, FaCartPlus } from "react-icons/fa";
+import { FaBars, FaCartPlus, FaTimes } from "react-icons/fa";
 import styled from "styled-components";
 import { ProductConsumer } from "../context";
 import logo from "../images/logo.svg";
@@ -8,12 +8,17 @@ function Navbar() {
   return (
     <ProductConsumer>
       {(value) => {
-        const { handleSidebar, handleCart, cartItems } = value;
+        const { handleSidebar, handleCart, cartItems, sidebarOpen } = value;
 
         return (
           <NavWrapper>
             <div className="nav-center">
-              <FaBars className="nav-icon" onClick={handleSidebar}></FaBars>
+              {sidebarOpen ? (
+                <FaTimes className="nav-icon" onClick={handleSidebar}></FaTimes>
+              ) : (
+                <FaBars className="nav-icon" onClick={handleSidebar}></FaBars>
+              )}
+
               <img src={logo} alt="Tech Store Logo" />
               <div className="nav-cart">
                 <FaCartPlus
@@ -48,6 +53,7 @@ const NavWrapper = styled.nav`
   .nav-icon {
     font-size: 1.5rem;
     cursor: pointer;
+    transition: all 0.8s linear;
   }
   .nav-cart {
     position: relative;

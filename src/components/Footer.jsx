@@ -18,7 +18,12 @@ function Footer() {
                 </div>
                 <div className="col-md-6 d-flex justify-content-around d-flex justify-content-center align-items-center pr-5 ">
                   {value.socialIcons.map((item) => (
-                    <a href={item.url} target="_blank" key={item.id}>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={item.id}
+                    >
                       {item.icon}
                     </a>
                   ))}

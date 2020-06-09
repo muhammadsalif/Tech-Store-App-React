@@ -7,7 +7,8 @@ function SideCart() {
   return (
     <ProductConsumer>
       {(value) => {
-        const { cartOpen, cart, closeCart } = value;
+        // one more cart props but removing for surge CI CD.
+        const { cartOpen, closeCart } = value;
         return (
           <CartWrapper show={cartOpen} onClick={closeCart}>
             <p>Cart Items</p>
